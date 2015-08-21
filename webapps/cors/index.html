@@ -1,0 +1,45 @@
+<!DOCTYPE html >
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<title>CORS Demo</title>
+<script type="text/javascript">
+    var request = new XMLHttpRequest();
+    var url = 'http://localhost:8080/cors/demo';
+    
+    function call8080() {
+        document.getElementById('success').style.visibility = 'hidden';
+        document.getElementById('failure').style.visibility = 'hidden';
+        request.open('POST', url, true);
+        request.onreadystatechange = handler;
+        request.send('');
+    }
+
+    function handler(evtXHR) {
+        if (request.readyState == 4) {
+            if (request.status == 200) {
+				document.getElementById('success').style.visibility = 'visible';
+            } else {
+                document.getElementById('failure').style.visibility = 'visible';
+            }
+        }
+    }
+</script>
+</head>
+<body>
+	<div id="success" class="alert alert-success" role="alert" style="visibility: hidden; position: absolute; top: 40px; width: 100%">
+    	<p><b>Der Request wurde vom Server bearbeitet.</b></p>
+		<p>CORS ist richtig konfiguriert.</p>
+	</div>
+	<div id="failure" class="alert alert-danger" role="alert" style="visibility: hidden; position: absolute; top: 40px; width: 100%">
+    	<p><b>Der Request wurde vom Server abgelehnt.</b></p>
+    	<p>Damit er angenommen wird muss der Server http://localhost:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDempFilter.java:14: response.setHeader("Access-Control-Allow-Origin", "http://localhost:8666");</pre> einkommentieren und neu kompilieren.</p>
+    </div>
+    <form id="cors-poster" action="">
+        <p>
+        <input type="button" class="btn btn-large" value="POST an localhost:8080/cors/demo" onclick="call8080()" />
+        </p>    
+    </form>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

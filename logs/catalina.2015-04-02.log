@@ -1,0 +1,7 @@
+02-Apr-2015 03:20:01.490 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8666"]
+02-Apr-2015 03:20:05.601 INFO [Thread-5] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["ajp-nio-8009"]
+02-Apr-2015 03:20:05.603 INFO [Thread-5] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina
+02-Apr-2015 03:20:06.863 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8666"]
+02-Apr-2015 03:20:06.876 INFO [Thread-5] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["ajp-nio-8009"]
+02-Apr-2015 03:20:06.909 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8666"]
+02-Apr-2015 03:20:06.911 INFO [Thread-5] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["ajp-nio-8009"]

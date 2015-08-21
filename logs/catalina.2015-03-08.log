@@ -1,0 +1,2 @@
+08-Mar-2015 20:51:39.071 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/hannes/ownCloud/software and security/trainings/attacat-8666/webapps/jack
+08-Mar-2015 20:51:39.507 INFO [localhost-startStop-2] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/hannes/ownCloud/software and security/trainings/attacat-8666/webapps/jack has finished in 453 ms
