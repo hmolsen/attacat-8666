@@ -1,7 +1,14 @@
 <%@ page import="java.io.*" %>
 <%@ page import="java.util.*" %>
 <%@ page session="false" %>
-<% 
+<%
+	if (request.getParameter("newlog") != null) {
+		String file = application.getRealPath("/") + "log.txt";
+
+		FileWriter filewriter = new FileWriter(file, false);
+		filewriter.write("");
+		filewriter.close();
+	}
 	if (!request.getParameterMap().entrySet().isEmpty()) {
 		String file = application.getRealPath("/") + "log.txt";
 
