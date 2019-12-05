@@ -1,2 +1,0 @@
-09-Mar-2015 16:51:24.957 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory /Users/hannes/ownCloud/software and security/trainings/attacat-8666/webapps/cors
-09-Mar-2015 16:51:25.821 INFO [localhost-startStop-3] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory /Users/hannes/ownCloud/software and security/trainings/attacat-8666/webapps/cors has finished in 920 ms
