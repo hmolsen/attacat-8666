@@ -1,45 +1,189 @@
 <!DOCTYPE html >
 <html>
 <head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="utf-8"/>
+<link href="bootstrap.min.css" rel="stylesheet">
 <title>CORS Demo</title>
 <script type="text/javascript">
     var request = new XMLHttpRequest();
-    var url = 'http://localhost:8080/cors/demo';
+    var url = 'https://vulnerads.de/cors/demo';
     
-    function call8080() {
-        document.getElementById('success').style.visibility = 'hidden';
-        document.getElementById('failure').style.visibility = 'hidden';
-        request.open('POST', url, true);
-        request.onreadystatechange = handler;
-        request.send('');
-    }
+    function callVulneradsGet() {
+        document.getElementById('successGet').style.visibility = 'hidden';
+        document.getElementById('failureGet').style.visibility = 'hidden';
+        request.open('GET', url, true);
+        request.onreadystatechange = handlerGet;
+        request.send();
+    };
 
-    function handler(evtXHR) {
+    function handlerGet(evtXHR) {
         if (request.readyState == 4) {
             if (request.status == 200) {
-				document.getElementById('success').style.visibility = 'visible';
+		document.getElementById('successGet').style.visibility = 'visible';
+		document.getElementById('level2').style.visibility = 'visible';
             } else {
-                document.getElementById('failure').style.visibility = 'visible';
+                document.getElementById('failureGet').style.visibility = 'visible';
+            }
+        }
+    }
+
+    function callVulneradsPost() {
+        document.getElementById('successPost').style.visibility = 'hidden';
+        document.getElementById('failurePost').style.visibility = 'hidden';
+        request.open('POST', url, true);
+        request.onreadystatechange = handlerPost;
+        request.send();
+    };
+
+    function handlerPost(evtXHR) {
+        if (request.readyState == 4) {
+            if (request.status == 200) {
+		document.getElementById('successPost').style.visibility = 'visible';
+		document.getElementById('level3').style.visibility = 'visible';
+            } else {
+                document.getElementById('failurePost').style.visibility = 'visible';
+            }
+        }
+    }
+
+    function callVulneradsPreflight() {
+        document.getElementById('successPreflight').style.visibility = 'hidden';
+        document.getElementById('failurePreflight').style.visibility = 'hidden';
+        request.open('POST', url, true);
+	request.setRequestHeader('X-My-Own-Header','TRUE');
+        request.onreadystatechange = handlerPreflight;
+        request.send();
+    };
+
+    function handlerPreflight(evtXHR) {
+        if (request.readyState == 4) {
+            if (request.status == 200) {
+		document.getElementById('successPreflight').style.visibility = 'visible';
+		document.getElementById('level4').style.visibility = 'visible';
+            } else {
+                document.getElementById('failurePreflight').style.visibility = 'visible';
+            }
+        }
+    }
+
+    function callVulneradsDelete() {
+        document.getElementById('successDelete').style.visibility = 'hidden';
+        document.getElementById('failureDelete').style.visibility = 'hidden';
+        request.open('DELETE', url, true);
+        request.onreadystatechange = handlerDelete;
+        request.send();
+    };
+
+    function handlerDelete(evtXHR) {
+        if (request.readyState == 4) {
+            if (request.status == 200) {
+		document.getElementById('successDelete').style.visibility = 'visible';
+		document.getElementById('win').style.visibility = 'visible';
+            } else {
+                document.getElementById('failureDelete').style.visibility = 'visible';
             }
         }
     }
 </script>
 </head>
 <body>
-	<div id="success" class="alert alert-success" role="alert" style="visibility: hidden; position: absolute; top: 40px; width: 100%">
-    	<p><b>Der Request wurde vom Server bearbeitet.</b></p>
-		<p>CORS ist richtig konfiguriert.</p>
-	</div>
-	<div id="failure" class="alert alert-danger" role="alert" style="visibility: hidden; position: absolute; top: 40px; width: 100%">
-    	<p><b>Der Request wurde vom Server abgelehnt.</b></p>
-    	<p>Damit er angenommen wird muss der Server http://localhost:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:14: response.setHeader("Access-Control-Allow-Origin", "http://localhost:8666");</pre> einkommentieren und neu kompilieren.</p>
-    </div>
-    <form id="cors-poster" action="">
-        <p>
-        <input type="button" class="btn btn-large" value="POST an localhost:8080/cors/demo" onclick="call8080()" />
-        </p>    
-    </form>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<form name='cors-poster' action="">
+		<div class="row no-margin" id="level1" style="visibility:visible">
+	    		<div class="col-md-2"></div>
+			<div class="col-md-6">
+				<h1>CORS Übung</h1>
+				<p>Bleib auf dieser Seite, um die Übung abzuschließen. Nicht neu laden!</p>
+			</div>
+	    		<div class="col-md-4"></div>
+		</div>
+		<div class="row no-margin">
+	    		<div class="col-md-2"></div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="button" class="btn btn-large" value="GET an https://vulnerads.de/cors/demo" onclick="callVulneradsGet()" />
+		    		</div>
+			</div>
+			<div class="col-md-6">
+				<div id="failureGet" class="alert alert-danger" role="alert" style="visibility: hidden; position: relative; width: 100%">
+			    		<p><b>Der GET Request wurde vom Server abgelehnt.</b></p>
+			  	  	<p>Damit er angenommen wird muss der Server https://attacat.de:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:15: response.setHeader("Access-Control-Allow-Origin", "https://attacat.de:8666");</pre> einkommentieren und vulnerads neu starten.</p>
+			    	</div>
+				<div id="successGet" class="alert alert-success" role="alert" style="visibility: hidden; position: absolute; top:0; width: 100%">
+			    		<p><b>Der GET Request wurde vom Server bearbeitet.</b></p>
+					<p>CORS ist richtig konfiguriert.</p>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row no-margin" id="level2" style="visibility:hidden">
+	    		<div class="col-md-2"></div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="button" class="btn btn-large" value="Standard POST an https://vulnerads.de/cors/demo" onclick="callVulneradsPost()" />
+		    		</div>
+			</div>
+			<div class="col-md-6">
+				<div id="failurePost" class="alert alert-danger" role="alert" style="visibility: hidden; position: relative; width: 100%">
+			    		<p><b>Der Standard POST Request wurde vom Server abgelehnt.</b></p>
+			  	  	<p>Damit er angenommen wird muss der Server https://attacat.de:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:15: response.setHeader("Access-Control-Allow-Origin", "https://attacat.de:8666");</pre> einkommentieren und vulnerads neu starten.</p>
+			    	</div>
+				<div id="successPost" class="alert alert-success" role="alert" style="visibility: hidden; position: absolute; top:0; width: 100%">
+			    		<p><b>Der Standard POST Request wurde vom Server bearbeitet.</b></p>
+					<p>CORS ist richtig konfiguriert.</p>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row no-margin" id="level3" style="visibility:hidden">
+	    		<div class="col-md-2"></div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="button" class="btn btn-large" value="Preflight POST an https://vulnerads.de/cors/demo" onclick="callVulneradsPreflight()" />
+		    		</div>
+			</div>
+			<div class="col-md-6">
+				<div id="failurePreflight" class="alert alert-danger" role="alert" style="visibility: hidden; position: relative; width: 100%">
+			    		<p><b>Der Preflight POST Request wurde vom Server abgelehnt.</b></p>
+			  	  	<p>Damit er angenommen wird muss der Server https://attacat.de:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:16: response.setHeader("Access-Control-Allow-Headers", "X-My-Own-Header");</pre> einkommentieren und neu kompilieren.</p>
+			    	</div>
+				<div id="successPreflight" class="alert alert-success" role="alert" style="visibility: hidden; position: absolute; top:0; width: 100%">
+			    		<p><b>Der Preflight POST Request wurde vom Server bearbeitet.</b></p>
+					<p>CORS ist richtig konfiguriert.</p>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<div class="row no-margin" id="level4" style="visibility:hidden">
+	    		<div class="col-md-2"></div>
+			<div class="col-md-2">
+				<div class="form-group">
+					<input type="button" class="btn btn-large" value="Preflight DELETE an https://vulnerads.de/cors/demo" onclick="callVulneradsDelete()" />
+		    		</div>
+			</div>
+			<div class="col-md-6">
+				<div id="failureDelete" class="alert alert-danger" role="alert" style="visibility: hidden; position: relative; width: 100%">
+			    		<p><b>Der DELETE Request wurde vom Server abgelehnt.</b></p>
+			  	  	<p>Damit er angenommen wird muss der Server DELETE Requests zulassen. Dazu in der Zeile <pre>CorsDemoFilter.java:14: response.setHeader("Access-Control-Allow-Methods", "GET, POST, <b>DELETE</b>");</pre> ergänzen und vulnerads neu starten.</p>
+			    	</div>
+				<div id="successDelete" class="alert alert-success" role="alert" style="visibility: hidden; position: absolute; top:0; width: 100%">
+			    		<p><b>Der DELETE Request wurde vom Server bearbeitet.</b></p>
+					<p>CORS ist richtig konfiguriert.</p>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+
+		<div class="row no-margin" id="win" style="visibility:hidden">
+	    		<div class="col-md-2"></div>
+			<div class="col-md-8">
+				<div id="successWin" class="alert alert-success" role="alert" style="position: relative; width: 100%">
+			    		<h1>Herzlichen Glückwunsch</h1>
+					<p><b>Du hast die CORS Übung erfolgreich abgeschlossen</b></p>
+				</div>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+	</form>
+	<script src="bootstrap.min.js"></script>
 </body>
 </html>
