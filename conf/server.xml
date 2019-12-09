@@ -87,7 +87,7 @@
     <Connector port="8666" protocol="org.apache.coyote.http11.Http11NioProtocol"
                maxThreads="150" SSLEnabled="true">
         <SSLHostConfig>
-            <Certificate certificateKeystoreFile="/root/Vulnerads/sosec-local.de.p12"
+            <Certificate certificateKeystoreFile="./attacat.de.p12"
                          certificateKeystorePassword="sosec"
                          type="RSA" />
         </SSLHostConfig>
