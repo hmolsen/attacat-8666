@@ -1,3 +1,5 @@
 /logs/*
 /work/Catalina/*
 .DS_Store
+/webapps/logger/log.txt
+
