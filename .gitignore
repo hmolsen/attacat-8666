@@ -2,4 +2,4 @@
 /work/Catalina/*
 .DS_Store
 /webapps/logger/log.txt
-
+*.p12
