@@ -459,7 +459,7 @@
         <servlet-name>cgi</servlet-name>
         <url-pattern>/cgi-bin/*</url-pattern>
     </servlet-mapping>
--->
+
     <security-constraint>
         <web-resource-collection>
         <web-resource-name>Entire Application</web-resource-name>
@@ -469,7 +469,7 @@
         <transport-guarantee>CONFIDENTIAL</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
-
+-->
 
   <!-- ================== Built In Filter Definitions ===================== -->
 
