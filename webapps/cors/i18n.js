@@ -11,16 +11,16 @@ var text = [
     
     {
         id: "get_reject",
-        en: "<b>The GET request has been rejected from the server</b>",
-        de: "<b>Der GET Request wurde vom Server abgelehnt.</b>"
+        en: "<b>Reading the GET response has not been allowed by the server.</b>",
+        de: "<b>Das Auslesen der GET Response wurde vom Server nicht genehmigt.</b>"
     }, {
         id: "get_resolve",
-        en: "For the request to be accepted, the server needs to allow the origin https://attacat.de:8666. To achieve this, uncomment the line <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> and restart vulnerads.",
-        de: "Damit er angenommen wird muss der Server https://attacat.de:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> einkommentieren und vulnerads neu starten."
+        en: "For the response to be readable, the server needs to allow the origin https://attacat.de:8666. To achieve this, uncomment the line <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> and restart vulnerads.",
+        de: "Damit die Antwort gelesen werden darf muss der Server https://attacat.de:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> einkommentieren und vulnerads neu starten."
     }, {
         id: "get_success",
-        en: "<b>The GET request has been accepted by the server.</b>",
-        de: "<b>Der GET Request wurde vom Server bearbeitet.</b>"
+        en: "<b>The GET response could be read.</b>",
+        de: "<b>Die GET Response konnte gelesen werden.</b>"
     }, {
         id: "get_cors_correct",
         en: "CORS is configured correctly.",
@@ -29,16 +29,16 @@ var text = [
     
     {
         id: "default_post_reject",
-        en: "<b>The default POST request has been rejected from the server</b>",
-        de: "<b>Der Standard POST Request wurde vom Server abgelehnt.</b>"
+        en: "<b>Reading the response to the simple POST request has not been allowed by the server.</b>",
+        de: "<b>Das Auslesen der Simple POST Response wurde vom Server nicht genehmigt.</b>"
     }, {
         id: "default_post_resolve",
-        en: "For the request to be accepted, the server needs to allow the origin https://attacat.de:8666. To achieve this, uncomment the line <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> and restart vulnerads.",
-        de: "Damit er angenommen wird muss der Server https://attacat.de:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> einkommentieren und vulnerads neu starten."
+        en: "For the response to be readable, the server needs to allow the origin https://attacat.de:8666. To achieve this, uncomment the line <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> and restart vulnerads.",
+        de: "Damit die Antwort gelesen werden darf muss der Server https://attacat.de:8666 als Anfragenden zulassen. Dazu die Zeile <pre>CorsDemoFilter.java:15: response.setHeader(\"Access-Control-Allow-Origin\", \"https://attacat.de:8666\");</pre> einkommentieren und vulnerads neu starten."
     }, {
         id: "default_post_success",
-        en: "<b>The default POST request has been accepted by the server.</b>",
-        de: "<b>Der Standard POST Request wurde vom Server bearbeitet.</b>"
+        en: "<b>Reading the response to the simple POST request has been allowed by the server.</b>",
+        de: "<b>Das Auslesen der Simple POST Response wurde vom Server genehmigt.</b>"
     }, {
         id: "default_post_cors_correct",
         en: "CORS is configured correctly.",
